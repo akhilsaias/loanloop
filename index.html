@@ -1,0 +1,504 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>LoanLoop | Fast, Safe &amp; Trusted Digital Loans</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .shadow-subtle { shadow: 0px 2px 4px rgba(10, 79, 191, 0.05); }
+        .shadow-active { shadow: 0px 8px 16px rgba(10, 79, 191, 0.1); }
+        .shadow-floating { shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#2f3133",
+                      "on-secondary-container": "#00732c",
+                      "on-primary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#0040a1",
+                      "secondary": "#006e2a",
+                      "surface-tint": "#1c57c7",
+                      "surface-container-highest": "#e2e2e5",
+                      "inverse-on-surface": "#f0f0f3",
+                      "background": "#f9f9fc",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed-variant": "#00531e",
+                      "surface-bright": "#f9f9fc",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e8e8ea",
+                      "on-tertiary-fixed-variant": "#802a00",
+                      "on-tertiary-fixed": "#380d00",
+                      "tertiary-fixed-dim": "#ffb59a",
+                      "surface-dim": "#dadadc",
+                      "outline-variant": "#c3c6d6",
+                      "inverse-primary": "#b2c5ff",
+                      "tertiary-container": "#9b3400",
+                      "primary": "#003992",
+                      "error": "#ba1a1a",
+                      "secondary-fixed": "#69ff87",
+                      "secondary-fixed-dim": "#3ce36a",
+                      "on-surface-variant": "#434653",
+                      "on-surface": "#1a1c1e",
+                      "on-primary-fixed": "#001848",
+                      "on-background": "#1a1c1e",
+                      "surface-variant": "#e2e2e5",
+                      "on-primary-container": "#bbcbff",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed": "#002108",
+                      "tertiary": "#742500",
+                      "primary-fixed-dim": "#b2c5ff",
+                      "secondary-container": "#5cfd80",
+                      "tertiary-fixed": "#ffdbcf",
+                      "outline": "#737785",
+                      "on-tertiary-container": "#ffbea6",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f3f3f6",
+                      "primary-fixed": "#dae2ff",
+                      "primary-container": "#0a4fbf",
+                      "surface-container": "#eeeef0",
+                      "on-error": "#ffffff",
+                      "surface": "#f9f9fc"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "md": "24px",
+                      "base": "8px",
+                      "lg": "48px",
+                      "max-width": "1200px",
+                      "xl": "80px",
+                      "margin-mobile": "16px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "margin-desktop": "auto"
+              },
+              "fontFamily": {
+                      "headline-sm": ["Sora"],
+                      "headline-md": ["Sora"],
+                      "display-lg": ["Sora"],
+                      "label-md": ["Inter"],
+                      "cta-label": ["Sora"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "display-lg-mobile": ["Sora"]
+              },
+              "fontSize": {
+                      "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "cta-label": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm docked full-width top-0 sticky z-50 h-16 flex justify-between items-center px-4 md:px-lg max-w-max-width mx-auto w-full">
+<div class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed-dim">LoanLoop</div>
+<nav class="hidden md:flex gap-md items-center">
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-label-md text-label-md hover:text-primary transition-colors" href="#">Personal Loan</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-label-md text-label-md" href="#">Business Loan</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-label-md text-label-md" href="#">Home Loan</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-label-md text-label-md" href="#">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors font-label-md text-label-md" href="#">Blog</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-cta-label text-cta-label hover:opacity-80 transition-opacity">
+            Apply Now
+        </button>
+</header>
+<main>
+<!-- Section 1: Hero Banner -->
+<section class="relative overflow-hidden pt-xl pb-lg px-margin-mobile md:px-lg max-w-max-width mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+<div class="z-10">
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary mb-md">
+                        Get Instant Loan up to ₹10 Lakhs – Fast, Safe &amp; Trusted
+                    </h1>
+<p class="text-body-lg text-on-surface-variant mb-lg max-w-lg">
+                        Compare top lenders, apply in minutes, and get funds directly to your bank account with India's most preferred digital loan aggregator.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-base">
+<button class="bg-primary-container text-on-primary px-8 py-4 rounded-xl font-cta-label text-cta-label shadow-active hover:scale-105 transition-transform">
+                            Apply Now – It's Free
+                        </button>
+<button class="flex items-center justify-center gap-xs bg-secondary text-on-secondary px-8 py-4 rounded-xl font-cta-label text-cta-label shadow-active hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                            Talk to an Expert
+                        </button>
+</div>
+<div class="mt-md flex items-center gap-base">
+<div class="flex -space-x-2">
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="Close up portrait of a smiling Indian male customer representative in a professional blue shirt, representing trust and reliability in financial services. Soft daylight studio lighting creates a welcoming, clean light-mode aesthetic aligned with the LoanLoop brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqIaf6oWU_kFJz6lR0UTjm8BTEzcoSVbX1aLOAWHS0P1TTHG8G91rxr-w8-HuOatO-8cAK9BHYeba45vygBPpRhjMwUaowRUcL4AA235RTPGA5yqCOYbNwEoXwK5JAxvHFE6oyL5HuSFFbWpwIC5ki_-CC-VTTzmlYgmDCV3R-Ua09WSSiJ1kluhSMq6NRuLskgix3fCK_V1O-tZ2U5kooa9UCOY1sQzAAzXCJAbHE5emvZmW-exiB4A7CFknqicJ66hJ0Nk1cI8mA">
+<img class="w-10 h-10 rounded-full border-2 border-white object-cover" data-alt="Professional Indian woman executive smiling warmly, wearing corporate attire. The portrait is high-contrast with a focus on institutional-grade security and friendly fintech service. The background is a soft, blurred modern office space with cool blue tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZHGAYT-LqrX5C9420Je8y3NyqxbpMvKxAUqjNYl2l-HFe27Ss2mAdCDReKduTxLqTUyk5MG7Cu8HMaVjvJ7nGiSdJ1DGH0pYFalGhT9qYbmHfEm6Zq-QrKgTIffYN861Mc9hB8ivjMbgtsFLs0p0eyMYmuQzWO8N7N_45lo7meopmZYlfdxhElFzr7W2SWQGxZMQm8zHEJYJGz_-t4yVIGovY9WqJFbb4ZtA9rSMpRj0Hjk8cSK_fRDUrzz5jadcnwXLpxEV3SNp-">
+</div>
+<p class="text-body-sm text-on-surface-variant"><span class="font-bold text-on-surface">15,000+</span> applications processed this month</p>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<img class="rounded-xl shadow-xl w-full" data-alt="A clean, minimalist high-end smartphone display showing a modern digital loan application interface with a green success checkmark. The scene is set on a pristine white desk with a soft blue ambient light, representing the fast and safe online lending experience of LoanLoop. Professional corporate fintech photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATaCsCQa4s3uSGuyCOhc_zrCX4VOmzXQ2hJBnzav-x0ZKyER96a4dMgIEEQhO2jAdCaufpnG2CqStJkQCVt09NiOnOYYnX2conFaiB4JMzA4Z2YpiDGScKu_b6LiWdvWSQahXgF9UBc8ukc2eQ2x2Rg1mT_zsldO4FqzqOwKSnSgMs5e_Dwmuv7t8iyB-krBFHUPqAYNOZETDs3P6jrBy5vR-o_r3Et_ycGtsvotisMj7J1N0rOAx7mG2zJCWCD5_vyfkLl_2mWfrK">
+</div>
+</div>
+</section>
+<!-- Section 2: Loan Categories -->
+<section class="py-xl bg-surface-container-low px-margin-mobile md:px-lg">
+<div class="max-w-max-width mx-auto">
+<div class="text-center mb-xl">
+<h2 class="text-headline-md font-headline-md text-on-surface mb-base">Explore Loan Options</h2>
+<p class="text-body-md text-on-surface-variant">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Tailored financial solutions for every need</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Icon Cards -->
+<div class="group bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-primary transition-all text-center shadow-subtle hover:shadow-active">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">person</span>
+</div>
+<h3 class="font-headline-sm text-label-md mb-xs">Personal</h3>
+</div>
+<div class="group bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-primary transition-all text-center shadow-subtle hover:shadow-active">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">home</span>
+</div>
+<h3 class="font-headline-sm text-label-md mb-xs">Home</h3>
+</div>
+<div class="group bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-primary transition-all text-center shadow-subtle hover:shadow-active">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">business_center</span>
+</div>
+<h3 class="font-headline-sm text-label-md mb-xs">Business</h3>
+</div>
+<div class="group bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-primary transition-all text-center shadow-subtle hover:shadow-active">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">directions_car</span>
+</div>
+<h3 class="font-headline-sm text-label-md mb-xs">Car</h3>
+</div>
+<div class="group bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-primary transition-all text-center shadow-subtle hover:shadow-active">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">pedal_bike</span>
+</div>
+<h3 class="font-headline-sm text-label-md mb-xs">Bike</h3>
+</div>
+<div class="group bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-primary transition-all text-center shadow-subtle hover:shadow-active">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">school</span>
+</div>
+<h3 class="font-headline-sm text-label-md mb-xs">Education</h3>
+</div>
+<div class="group bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-primary transition-all text-center shadow-subtle hover:shadow-active">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">payments</span>
+</div>
+<h3 class="font-headline-sm text-label-md mb-xs">Gold</h3>
+</div>
+<div class="group bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-primary transition-all text-center shadow-subtle hover:shadow-active">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-headline-sm">credit_score</span>
+</div>
+<h3 class="font-headline-sm text-label-md mb-xs">Low CIBIL</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Why Choose Us (Bento Style) -->
+<section class="py-xl px-margin-mobile md:px-lg max-w-max-width mx-auto">
+<div class="mb-lg">
+<h2 class="text-headline-md font-headline-md text-primary">Why Thousands Trust LoanLoop</h2>
+<p class="text-body-md text-on-surface-variant">Redefining speed and reliability in finance.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="md:col-span-2 bg-primary-container p-lg rounded-xl text-on-primary flex flex-col justify-end min-h-[300px] relative overflow-hidden group">
+<span class="material-symbols-outlined absolute -top-10 -right-10 text-[200px] opacity-10 group-hover:scale-110 transition-transform">bolt</span>
+<h3 class="text-headline-md font-headline-md mb-base">Instant Decisions</h3>
+<p class="text-body-lg opacity-90 max-w-md">Our proprietary algorithm analyzes your profile in seconds, providing real-time eligibility checks with 30+ partner banks.</p>
+</div>
+<div class="bg-surface-container-high p-lg rounded-xl flex flex-col gap-md">
+<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Secure &amp; Private</h3>
+<p class="text-body-md text-on-surface-variant">256-bit encryption ensures your financial data stays confidential and protected from any unauthorized access.</p>
+</div>
+<div class="bg-surface-container-high p-lg rounded-xl flex flex-col gap-md">
+<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">update</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">24hr Disbursal</h3>
+<p class="text-body-md text-on-surface-variant">Once approved, receive your funds directly in your bank account within 24 business hours.</p>
+</div>
+<div class="md:col-span-2 bg-secondary-container p-lg rounded-xl text-on-secondary-container flex flex-col justify-center border border-secondary/20">
+<div class="flex items-center gap-md">
+<div class="flex-1">
+<h3 class="text-headline-sm font-headline-sm mb-xs">Transparent Process</h3>
+<p class="text-body-md opacity-80">Zero hidden charges. Every processing fee and interest rate is clearly disclosed before you sign.</p>
+</div>
+<div class="hidden sm:block">
+<img class="w-32 h-32 object-cover rounded-lg shadow-subtle" data-alt="Close up of a financial document with clear, transparent figures and a sleek modern pen. The lighting is crisp and clear, symbolizing honesty and clarity in financial dealings. Professional corporate fintech visual language with soft greens and blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1fKsr-0GEqyfPaKjGzSxQnPUzfqwJVE7wDxblYBej8Et2ydm0gI8V8SvFKMzdQNqfg9Mf0uxBOpMr3cZZNbbwV8mM3eN1swA8dcAjq0O3KduDC2ZE94UCYZWRNFbDxj2njWIjWwjNkOC51lfDsuFENeBpro6awIPQolsnKVPtpJI3TfpGyMADVf3L-Tq6UTZGtswzXTR-rs64x045WGo8x3ojMnzY4u81m2ucTLLFpaMHfRcisHOH6D7vpo3oYxqsUMRvTDwmWHqv">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: How It Works -->
+<section class="py-xl bg-surface-container px-margin-mobile md:px-lg">
+<div class="max-w-max-width mx-auto">
+<div class="text-center mb-xl">
+<h2 class="text-headline-md font-headline-md text-on-surface">3 Simple Steps to Your Loan</h2>
+</div>
+<div class="relative grid grid-cols-1 md:grid-cols-3 gap-xl">
+<!-- Connector line (Desktop) -->
+<div class="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-outline-variant z-0"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-20 h-20 bg-surface-container-lowest text-primary rounded-full flex items-center justify-center border-4 border-primary shadow-active mb-md">
+<span class="text-headline-md font-bold">1</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm mb-base">Check Eligibility</h3>
+<p class="text-body-sm text-on-surface-variant">Fill in your basic details and see your eligible loan amount in 2 minutes.</p>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-20 h-20 bg-surface-container-lowest text-primary rounded-full flex items-center justify-center border-4 border-primary shadow-active mb-md">
+<span class="text-headline-md font-bold">2</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm mb-base">Submit Documents</h3>
+<p class="text-body-sm text-on-surface-variant">Upload minimal documents digitally for verification. No physical visits required.</p>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-20 h-20 bg-secondary text-on-secondary rounded-full flex items-center justify-center border-4 border-secondary shadow-active mb-md">
+<span class="material-symbols-outlined text-headline-md" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm mb-base">Get Funds</h3>
+<p class="text-body-sm text-on-surface-variant">Review and sign your loan agreement online to receive the amount instantly.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: EMI Calculator -->
+<section class="py-xl px-margin-mobile md:px-lg max-w-max-width mx-auto">
+<div class="bg-surface-container-lowest rounded-xl shadow-xl p-lg border border-outline-variant grid grid-cols-1 lg:grid-cols-2 gap-lg">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary mb-md">Calculate Your EMI</h2>
+<p class="text-body-md text-on-surface-variant mb-lg">Plan your finances before you apply. Adjust the sliders to see your monthly commitment.</p>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between mb-xs">
+<label class="text-label-md font-label-md">Loan Amount (₹)</label>
+<span class="text-primary font-bold">₹5,00,000</span>
+</div>
+<input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="5000000" min="10000" step="10000" type="range" value="500000">
+</div>
+<div>
+<div class="flex justify-between mb-xs">
+<label class="text-label-md font-label-md">Interest Rate (%)</label>
+<span class="text-primary font-bold">10.5%</span>
+</div>
+<input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="24" min="8" step="0.5" type="range" value="10.5">
+</div>
+<div>
+<div class="flex justify-between mb-xs">
+<label class="text-label-md font-label-md">Tenure (Months)</label>
+<span class="text-primary font-bold">24 Months</span>
+</div>
+<input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="60" min="6" step="6" type="range" value="24">
+</div>
+</div>
+</div>
+<div class="bg-primary/5 p-lg rounded-xl flex flex-col justify-center items-center text-center border border-primary/10">
+<p class="text-label-md text-on-surface-variant uppercase tracking-widest mb-base">Your Monthly EMI</p>
+<h3 class="text-[48px] font-bold text-primary mb-md">₹23,190</h3>
+<div class="grid grid-cols-2 gap-md w-full max-w-xs border-t border-outline-variant pt-md">
+<div>
+<p class="text-body-sm text-on-surface-variant">Total Interest</p>
+<p class="font-bold text-on-surface">₹56,560</p>
+</div>
+<div>
+<p class="text-body-sm text-on-surface-variant">Total Amount</p>
+<p class="font-bold text-on-surface">₹5,56,560</p>
+</div>
+</div>
+<button class="mt-lg w-full bg-primary text-on-primary py-3 rounded-lg font-cta-label">Apply for This Amount</button>
+</div>
+</div>
+</section>
+<!-- Section 6: Trust Bar -->
+<section class="bg-primary text-on-primary py-lg">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-lg grid grid-cols-2 md:grid-cols-4 gap-lg text-center">
+<div>
+<p class="text-display-lg-mobile md:text-headline-md font-bold">₹500Cr+</p>
+<p class="text-label-md opacity-80 uppercase">Loans Disbursed</p>
+</div>
+<div>
+<p class="text-display-lg-mobile md:text-headline-md font-bold">1M+</p>
+<p class="text-label-md opacity-80 uppercase">Happy Customers</p>
+</div>
+<div>
+<p class="text-display-lg-mobile md:text-headline-md font-bold">30+</p>
+<p class="text-label-md opacity-80 uppercase">Bank Partners</p>
+</div>
+<div>
+<p class="text-display-lg-mobile md:text-headline-md font-bold">4.8/5</p>
+<p class="text-label-md opacity-80 uppercase">User Rating</p>
+</div>
+</div>
+</section>
+<!-- Section 8: Lead Capture Form -->
+<section class="py-xl px-margin-mobile md:px-lg max-w-max-width mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary mb-md">Ready to start? Check eligibility in 60 seconds.</h2>
+<p class="text-body-lg text-on-surface-variant mb-lg">Our experts are waiting to help you find the best loan offer from 30+ partner banks and NBFCs.</p>
+<ul class="space-y-base">
+<li class="flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">No impact on CIBIL score for checking</span>
+</li>
+<li class="flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Personalized offers based on profile</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface-container-low p-md md:p-lg rounded-xl shadow-xl border border-outline-variant">
+<form class="space-y-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface-variant">Full Name</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md" placeholder="As per PAN" type="text">
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface-variant">Mobile Number</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md" placeholder="+91" type="tel">
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface-variant">Loan Type</label>
+<select class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md">
+<option>Personal Loan</option>
+<option>Business Loan</option>
+<option>Home Loan</option>
+<option>Car Loan</option>
+</select>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface-variant">Monthly Income (₹)</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md" placeholder="Enter amount" type="number">
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-md font-label-md text-on-surface-variant">City</label>
+<input class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md" placeholder="e.g. Mumbai" type="text">
+</div>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-cta-label text-cta-label shadow-active hover:opacity-90 transition-opacity" type="submit">
+                            Check My Eligibility Now
+                        </button>
+</form>
+</div>
+</div>
+</section>
+<!-- Section 9: Blog Preview -->
+<section class="py-xl bg-surface-container-low px-margin-mobile md:px-lg">
+<div class="max-w-max-width mx-auto">
+<div class="flex justify-between items-end mb-xl">
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Financial Insights</h2>
+<p class="text-body-md text-on-surface-variant">Stay updated with the latest in fintech.</p>
+</div>
+<a class="hidden md:flex items-center text-primary font-label-md gap-xs hover:underline" href="#">
+                        View All Articles <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant shadow-subtle group">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform" data-alt="Close up of a modern laptop screen showing colorful financial charts and graphs. The lighting is bright and high-key, creating a professional and analytical atmosphere. Minimalist office background with cool blue and clean white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAasXIAm_PnStjK6geOAJfjYbqh05EHFTk3pvuaGOprI_KhBH1CzlC1vehi7dlsbI-snNmo3scKEEGbykj0W6OG033DYZ7JVINV7y1aQQHIYEAJYsgbw_hticWVgDeFGrM-lA86M45PDoruY2NvgkIKRw1FnsuIX09apgOxuA8pAYLpSZ1MlPLoAT9iRy0dlEeHiaWalWecttjEi03ANuC23kMMPJENZe9rJB9zvTdbU_g6iUQPcQnsZ61oPVN9KncJaO5e94TIAHWq">
+<div class="p-md">
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Financial Planning</span>
+<h3 class="text-headline-sm font-headline-sm mt-xs mb-base">5 Ways to Improve Your CIBIL Score Fast</h3>
+<p class="text-body-sm text-on-surface-variant mb-md">Learn the proven strategies to boost your credit score and unlock better interest rates...</p>
+<a class="text-primary font-bold text-body-sm" href="#">Read More</a>
+</div>
+</article>
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant shadow-subtle group">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform" data-alt="A top-down view of a professional signing a clean legal document on a minimalist wooden desk. Soft natural side lighting emphasizes the texture of the paper and the elegance of the pen, suggesting a successful loan approval process. Warm, trustworthy corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLsk9v51w2GMb9OWUjArf17QdA34H4BljBYTE5aWT4l7CxEORH45XdKJ7qmSY0FAHnke64VjdinJg-tSFp9mOHNrTL4I8FxQ2vdjwiEYuec-DrBHywg9XnM-4tPXLHdaMuJqzCwz5Iq6dvqz_xX081ZwwT3PC41BHqGvAcR5HN1qcJlcdDluuXnWG5zohOelfemAAbA5BHaKrO1TrSF4Q7v5PuqWDTCgfUJfobPv4fPgvFV5vtGDNpu4qOBMgDiLCA3b1bBYwtFCpI">
+<div class="p-md">
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Loan Tips</span>
+<h3 class="text-headline-sm font-headline-sm mt-xs mb-base">Understanding Floating vs. Fixed Interest Rates</h3>
+<p class="text-body-sm text-on-surface-variant mb-md">Deciding between interest rate types can be tricky. We break down the pros and cons for you...</p>
+<a class="text-primary font-bold text-body-sm" href="#">Read More</a>
+</div>
+</article>
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant shadow-subtle group">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform" data-alt="Modern Indian business owners, a man and a woman, shaking hands in a bright, modern glass-walled office. They look confident and satisfied. The scene is shot with high-key lighting, emphasizing a positive and successful business loan outcome. High-end professional photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmEqSdgG8ljiYzFfc-zfnl4RUIva7TnmXpa40k4GGEqkMUgrT7ckdxXvdbg4q227HgwIleoahm8yOIplmX_IAMBkN5FQJmnKuXkD1eO_gSXVIodm3LdEuf31e2RLt_Xwzkg-ARxu8vOXRZEvlBV7W3skQI3K9RjadEhK8MfFcS6OvcKztxOyZDE-Ae6lpLQuWzwlq1aOGFMxJtsDeTQM4953B7azlDFjqBwVjcdeF7enMmic71BLaWkkF2QRTD9xz-6kSaGvUpvvOn">
+<div class="p-md">
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Business</span>
+<h3 class="text-headline-sm font-headline-sm mt-xs mb-base">Top 10 Banks for Small Business Loans in 2024</h3>
+<p class="text-body-sm text-on-surface-variant mb-md">Choosing the right banking partner is crucial for growth. Here is our expert curated list...</p>
+<a class="text-primary font-bold text-body-sm" href="#">Read More</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+</main>
+<!-- SideNavBar (FABs) -->
+<div class="fixed bottom-md right-md z-50 flex flex-col items-end gap-base">
+<!-- Tooltip -->
+<div class="bg-surface-container-lowest border border-outline-variant px-md py-2 rounded-full shadow-lg mb-xs hidden md:block">
+<p class="text-label-md text-on-surface">Need help? Chat with us</p>
+</div>
+<a class="bg-primary text-on-primary rounded-full p-4 flex items-center justify-center hover:scale-110 transition-transform duration-200 shadow-xl" href="#">
+<span class="material-symbols-outlined">call</span>
+</a>
+<a class="bg-secondary text-on-secondary rounded-full p-4 flex items-center justify-center hover:scale-110 transition-transform duration-200 shadow-xl active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</a>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-high dark:bg-inverse-surface border-t border-outline-variant dark:border-outline full-width">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-lg py-lg flex flex-col md:flex-row justify-between items-start gap-md">
+<div class="max-w-md">
+<div class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed-dim mb-md">LoanLoop</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-lg">
+                    LoanLoop is a lead generation platform and not a direct lender. All loans are subject to credit approval by our partner banks and NBFCs. © 2024 LoanLoop. All rights reserved.
+                </p>
+</div>
+<div class="flex flex-wrap gap-lg">
+<div class="flex flex-col gap-base">
+<p class="text-label-md font-bold text-on-surface">Company</p>
+<a class="text-body-sm text-on-surface-variant hover:text-primary underline transition-colors" href="#">About Us</a>
+<a class="text-body-sm text-on-surface-variant hover:text-primary underline transition-colors" href="#">Contact Us</a>
+<a class="text-body-sm text-on-surface-variant hover:text-primary underline transition-colors" href="#">Sitemap</a>
+</div>
+<div class="flex flex-col gap-base">
+<p class="text-label-md font-bold text-on-surface">Legal</p>
+<a class="text-body-sm text-on-surface-variant hover:text-primary underline transition-colors" href="#">Privacy Policy</a>
+<a class="text-body-sm text-on-surface-variant hover:text-primary underline transition-colors" href="#">Terms of Service</a>
+<a class="text-body-sm text-on-surface-variant hover:text-primary underline transition-colors" href="#">Partner Login</a>
+</div>
+</div>
+</div>
+</footer>
+
+
+</body></html>
