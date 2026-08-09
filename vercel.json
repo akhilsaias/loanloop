@@ -1,16 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/personalloan",
-      "destination": "/personalloan.html"
-    },
-    {
-      "source": "/about",
-      "destination": "/about.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/contact.html"
+      "source": "/:page",
+      "destination": "/:page.html"
     }
   ]
 }
