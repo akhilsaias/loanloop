@@ -1480,34 +1480,37 @@ function submitLead(){
 
 // SUBMIT SUBSCRIBE FORM
 function submitSubscribe(){
-  const emailInput=document.getElementById('subEmail');
-  const email=emailInput.value.trim();
+  const emailInput = document.getElementById('subEmail');
+  const email = emailInput.value.trim();
 
-  if(!email||!isValidEmail(email)){
-    showToast('⚠️ Please enter a valid email address.',true);
+  if(!email || !isValidEmail(email)){
+    showToast('⚠️ Please enter a valid email address.', true);
     return;
   }
 
-  const payload={
-    type:'subscription',
-    timestamp:new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'}),
-    email,
-    source:'LoanLoop Newsletter'
+  const payload = {
+    type: 'subscription',
+    email: email,
+    source: 'LoanLoop Newsletter'
   };
 
-  fetch(SHEET_URL,{
-    method:'POST',
-    headers:{'Content-Type':'text/plain'},
-    body:JSON.stringify(payload)
+  fetch(SHEET_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
   })
-  .then(res=>res.json())
-  .then(()=>{
-    showToast('🎉 Thank you for subscribing to LoanLoop updates!');
-    emailInput.value='';
+  .then(res => res.json())
+  .then(data => {
+    if(data.result === 'success') {
+      showToast('🎉 Thank you for subscribing to LoanLoop updates!', false);
+      emailInput.value = '';
+    } else {
+      showToast('❌ Subscription failed. Please try again.', true);
+    }
   })
-  .catch(err=>{
+  .catch(err => {
     console.error(err);
-    showToast('❌ Subscription failed. Please try again later.',true);
+    showToast('❌ Subscription failed. Please check network connection.', true);
   });
 }
 </script>
